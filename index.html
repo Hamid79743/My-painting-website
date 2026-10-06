@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hamid's Gallery — Timeless Aesthetic & Textured Art</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        gold: '#C6A664',
+        goldLight: '#E8D5B5',
+        charcoal: '#0B0B0B',
+        charcoalLight: '#141414',
+        charcoalCard: '#1A1A1A',
+        muted: '#9CA3AF',
+      },
+      fontFamily: {
+        serif: ['"Cormorant Garamond"', 'serif'],
+        display: ['"Playfair Display"', 'serif'],
+        sans: ['Inter', 'sans-serif'],
+      }
+    }
+  }
+}
+</script>
+<style>
+*{scroll-behavior:smooth}
+body{background:#0B0B0B;color:#F5F5F5;font-family:'Inter',sans-serif;overflow-x:hidden}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:#0B0B0B}
+::-webkit-scrollbar-thumb{background:#C6A664;border-radius:10px}
+.no-scrollbar::-webkit-scrollbar{display:none}
+.line-clamp-1{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+.hero-pattern{
+  background-image: radial-gradient(circle at 1px 1px, rgba(198,166,100,0.08) 1px, transparent 0);
+  background-size: 40px 40px;
+}
+.gold-gradient{background: linear-gradient(135deg, #C6A664 0%, #E8D5B5 50%, #C6A664 100%);}
+.shimmer{position:relative;overflow:hidden}
+.shimmer::after{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.08),transparent);
+  transition:0.6s;
+}
+.shimmer:hover::after{left:100%}
+</style>
+</head>
+<body class="antialiased">
+
+<!-- Top Notification Bar -->
+<div id="topBar" class="fixed top-0 left-0 w-full z-[60] bg-[#C6A664] text-black text-[11px] md:text-xs font-medium tracking-wide">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-2.5 flex flex-wrap items-center justify-between gap-2">
+    <div class="flex items-center gap-4 md:gap-6 flex-wrap">
+      <a href="mailto:khizariqbalkhizar081@gmail.com" class="flex items-center gap-1.5 hover:opacity-70 transition">
+        <i class="fa-regular fa-envelope text-[12px]"></i>
+        <span class="hidden sm:inline">khizariqbalkhizar081@gmail.com</span>
+        <span class="sm:hidden">Email Us</span>
+      </a>
+      <span class="hidden md:block w-px h-3 bg-black/20"></span>
+      <a href="https://wa.me/923077611467" target="_blank" class="flex items-center gap-1.5 hover:opacity-70 transition">
+        <i class="fa-brands fa-whatsapp text-[13px]"></i>
+        <span>03077611467</span>
+        <span class="hidden lg:inline opacity-60">• WhatsApp Available</span>
+      </a>
+    </div>
+    <a href="https://www.instagram.com/itxhamid_gallery?igsh=MXNmZ211OGppc2hvNQ==" target="_blank" class="flex items-center gap-2 bg-black text-white px-3 md:px-4 py-1.5 rounded-full hover:bg-zinc-800 transition text-[11px] font-semibold tracking-widest uppercase">
+      <i class="fa-brands fa-instagram text-sm"></i>
+      <span>DM on Instagram</span>
+      <i class="fa-solid fa-arrow-up-right-from-square text-[10px] opacity-60"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav id="navbar" class="fixed top-[44px] md:top-[36px] left-0 w-full z-40 bg-[#0B0B0B]/80 backdrop-blur-xl border-b border-white/[0.06] transition-all">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 h-[64px] md:h-[72px] flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-full border border-[#C6A664]/40 flex items-center justify-center">
+        <span class="font-serif text-[#C6A664] text-lg font-light">H</span>
+      </div>
+      <div class="leading-none">
+        <div class="font-serif text-[18px] tracking-[0.18em] font-light text-white">HAMID'S</div>
+        <div class="font-serif text-[10px] tracking-[0.35em] text-[#C6A664] -mt-0.5">GALLERY</div>
+      </div>
+    </a>
+
+    <div class="hidden lg:flex items-center gap-8 text-[12px] tracking-[0.18em] font-medium text-white/70">
+      <a href="#gallery" class="hover:text-[#C6A664] transition">GALLERY</a>
+      <a href="#about" class="hover:text-[#C6A664] transition">ABOUT</a>
+      <a href="#commission" class="hover:text-[#C6A664] transition">COMMISSION</a>
+      <a href="#footer" class="hover:text-[#C6A664] transition">CONTACT</a>
+    </div>
+
+    <div class="flex items-center gap-2 md:gap-3">
+      <button onclick="openAdminLogin()" id="adminTrigger" class="hidden md:flex items-center gap-2 text-white/60 hover:text-white text-xs tracking-widest border border-white/10 px-3 py-2 rounded-full transition">
+        <i class="fa-solid fa-lock text-[10px]"></i> ADMIN
+      </button>
+      <a href="#commission" class="hidden md:inline-flex items-center gap-2 bg-[#C6A664] text-black px-5 py-2.5 rounded-full text-xs font-semibold tracking-widest hover:bg-[#D4B87A] transition">
+        COMMISSION WORK <i class="fa-solid fa-arrow-right text-[11px]"></i>
+      </a>
+      <button onclick="toggleMobileMenu()" class="lg:hidden w-9 h-9 rounded-full border border-white/10 flex items-center justify-center text-white">
+        <i id="menuIcon" class="fa-solid fa-bars text-sm"></i>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-white/5 bg-[#111111] px-4 py-6 space-y-4">
+    <a href="#gallery" onclick="toggleMobileMenu()" class="block text-xs tracking-[0.2em] text-white/70 py-2">GALLERY</a>
+    <a href="#about" onclick="toggleMobileMenu()" class="block text-xs tracking-[0.2em] text-white/70 py-2">ABOUT</a>
+    <a href="#commission" onclick="toggleMobileMenu()" class="block text-xs tracking-[0.2em] text-white/70 py-2">COMMISSION</a>
+    <a href="#footer" onclick="toggleMobileMenu()" class="block text-xs tracking-[0.2em] text-white/70 py-2">CONTACT</a>
+    <div class="pt-4 flex gap-3">
+      <button onclick="openAdminLogin();toggleMobileMenu()" class="flex-1 border border-white/10 text-white py-3 rounded-full text-xs tracking-widest"><i class="fa-solid fa-lock mr-2"></i>ADMIN LOGIN</button>
+      <a href="#commission" onclick="toggleMobileMenu()" class="flex-1 bg-[#C6A664] text-black py-3 rounded-full text-xs font-bold tracking-widest text-center">COMMISSION</a>
+    </div>
+  </div>
+</nav>
+
+<main class="pt-[108px] md:pt-[108px]">
+<!-- Hero Section -->
+<section class="relative overflow-hidden hero-pattern border-b border-white/[0.04]">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-10 md:py-16 lg:py-20">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-8 items-center">
+      <!-- Left Content -->
+      <div class="relative">
+        <div class="inline-flex items-center gap-2 border border-[#C6A664]/20 rounded-full px-3 py-1.5 mb-6 bg-[#C6A664]/5">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#C6A664] animate-pulse"></span>
+          <span class="text-[10px] tracking-[0.22em] text-[#C6A664] font-medium">AVAILABLE FOR CUSTOM COMMISSIONS — 2026</span>
+        </div>
+        <h1 class="font-serif text-[38px] sm:text-[48px] lg:text-[58px] leading-[0.95] font-light text-white">
+          Elevate Your Space<br>
+          <span class="font-light italic text-[#E8D5B5]/90">with Timeless</span><br>
+          <span class="font-semibold text-[#C6A664]">Aesthetic &<br>Textured Art.</span>
+        </h1>
+        <p class="mt-5 text-sm md:text-[15px] leading-relaxed text-white/55 max-w-[520px] font-light">
+          Curated botanical sketches, Arabic calligraphy with gold accents, and 3D textured canvas masterpieces — crafted to transform interiors into timeless sanctuaries.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#gallery" class="inline-flex items-center gap-2 bg-[#C6A664] text-black px-6 md:px-8 py-3.5 rounded-full text-xs font-bold tracking-[0.18em] hover:bg-[#D4B87A] transition shimmer">
+            EXPLORE GALLERY <i class="fa-solid fa-arrow-right text-[11px]"></i>
+          </a>
+          <a href="#commission" class="inline-flex items-center gap-2 border border-white/15 text-white px-6 md:px-8 py-3.5 rounded-full text-xs font-semibold tracking-[0.18em] hover:bg-white hover:text-black transition">
+            BOOK CUSTOM COMMISSION
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="mt-10 grid grid-cols-3 gap-6 max-w-[420px] border-t border-white/5 pt-6">
+          <div>
+            <div class="font-serif text-2xl md:text-3xl font-light text-white">150<span class="text-[#C6A664]">+</span></div>
+            <div class="text-[10px] tracking-[0.2em] text-white/40 mt-1">ARTWORKS DELIVERED</div>
+          </div>
+          <div>
+            <div class="font-serif text-2xl md:text-3xl font-light text-white">98<span class="text-[#C6A664]">%</span></div>
+            <div class="text-[10px] tracking-[0.2em] text-white/40 mt-1">CLIENT SATISFACTION</div>
+          </div>
+          <div>
+            <div class="font-serif text-2xl md:text-3xl font-light text-white">4.9<i class="fa-solid fa-star text-[#C6A664] text-sm ml-1"></i></div>
+            <div class="text-[10px] tracking-[0.2em] text-white/40 mt-1">INSTAGRAM RATING</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Visual -->
+      <div class="relative lg:pl-8">
+        <div class="relative rounded-[28px] overflow-hidden bg-[#141414] border border-white/5 p-2 md:p-3">
+          <!-- main image -->
+          <div class="relative rounded-[20px] overflow-hidden aspect-[4/3.2] md:aspect-[1.15/0.85]">
+            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=900&q=80" alt="Botanical graphite artwork" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+            <!-- floating card -->
+            <div class="absolute bottom-3 left-3 right-3 md:bottom-4 md:left-4 md:right-auto bg-black/75 backdrop-blur-xl border border-white/10 rounded-2xl p-3 md:p-4 flex items-center gap-3 md:min-w-[280px]">
+              <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=200&q=80" class="w-12 h-12 rounded-xl object-cover hidden sm:block">
+              <div class="flex-1">
+                <div class="text-[11px] tracking-[0.15em] text-white/50">FEATURED PIECE</div>
+                <div class="font-serif text-sm text-white -mt-0.5">Midnight Monstera — 8B Graphite</div>
+                <div class="text-xs text-white/50">24" × 18" • Available</div>
+              </div>
+              <div class="w-8 h-8 rounded-full bg-[#C6A664] flex items-center justify-center text-black">
+                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+              </div>
+            </div>
+          </div>
+          <!-- bottom strip -->
+          <div class="grid grid-cols-3 gap-2 md:gap-3 mt-2 md:mt-3">
+            <div class="rounded-xl overflow-hidden aspect-[1.2/1] relative">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80" class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/10"></div>
+            </div>
+            <div class="rounded-xl overflow-hidden aspect-[1.2/1] relative">
+              <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=400&q=80" class="w-full h-full object-cover">
+            </div>
+            <div class="rounded-xl overflow-hidden aspect-[1.2/1] relative bg-[#1A1A1A] flex flex-col items-center justify-center p-2 text-center">
+              <div class="w-7 h-7 rounded-full bg-[#C6A664]/20 flex items-center justify-center mb-1.5"><i class="fa-solid fa-palette text-[#C6A664] text-xs"></i></div>
+              <div class="text-[10px] tracking-widest text-white/60">TEXTURED</div>
+              <div class="font-serif text-xs text-white leading-tight">Gold Leaf<br>Calligraphy</div>
+            </div>
+          </div>
+        </div>
+        <!-- decorative gold line -->
+        <div class="hidden lg:block absolute -right-6 top-1/2 -translate-y-1/2 w-px h-[70%] bg-gradient-to-b from-transparent via-[#C6A664]/20 to-transparent"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Showcase -->
+<section id="gallery" class="py-12 md:py-16 bg-[#0B0B0B]">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+      <div>
+        <div class="text-[11px] tracking-[0.3em] text-[#C6A664] font-medium">CURATED COLLECTION — 2024/2026</div>
+        <h2 class="font-serif text-[32px] md:text-[42px] font-light leading-none mt-2 text-white">The <span class="italic font-light text-[#E8D5B5]">Gallery</span></h2>
+        <p class="text-sm text-white/45 mt-3 max-w-[520px]">Each piece is meticulously hand-crafted. Explore by category or view the complete collection.</p>
+      </div>
+      <div class="flex items-center gap-2 text-[11px]">
+        <span class="hidden md:inline text-white/30 tracking-widest">FILTER BY:</span>
+        <div id="filterTabs" class="flex items-center gap-1.5 bg-[#141414] p-1 rounded-full border border-white/5 overflow-x-auto no-scrollbar max-w-full">
+          <button data-filter="all" class="filter-btn active whitespace-nowrap px-4 md:px-5 py-2 rounded-full bg-[#C6A664] text-black font-semibold tracking-widest text-[11px] transition">ALL WORKS</button>
+          <button data-filter="botanical" class="filter-btn whitespace-nowrap px-4 md:px-5 py-2 rounded-full text-white/60 hover:text-white font-medium tracking-widest text-[11px] transition">BOTANICAL</button>
+          <button data-filter="calligraphy" class="filter-btn whitespace-nowrap px-4 md:px-5 py-2 rounded-full text-white/60 hover:text-white font-medium tracking-widest text-[11px] transition">CALLIGRAPHY</button>
+          <button data-filter="textured" class="filter-btn whitespace-nowrap px-4 md:px-5 py-2 rounded-full text-white/60 hover:text-white font-medium tracking-widest text-[11px] transition">TEXTURED</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- count bar -->
+    <div class="flex items-center justify-between py-3 border-y border-white/5 mb-6 text-xs">
+      <div class="text-white/40 tracking-wide"><span id="galleryCount">9</span> artworks • <span class="text-white/70">Click any piece for high-resolution view</span></div>
+      <div class="hidden md:flex items-center gap-2 text-white/30">
+        <i class="fa-solid fa-grip"></i> <span class="tracking-widest text-[10px]">GRID VIEW</span>
+      </div>
+    </div>
+
+    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+      <!-- injected by JS -->
+    </div>
+
+    <div id="emptyState" class="hidden py-16 text-center border border-dashed border-white/10 rounded-2xl mt-6">
+      <i class="fa-regular fa-image text-3xl text-white/20 mb-3"></i>
+      <p class="text-white/60">No artworks in this category yet.</p>
+      <p id="emptyAdminHint" class="text-xs text-[#C6A664] mt-2 hidden">Login as admin to add new pieces.</p>
+    </div>
+  </div>
+</section>
+
+<!-- About the Artist -->
+<section id="about" class="py-12 md:py-20 bg-[#0F0F0F] border-y border-white/[0.04]">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div class="relative">
+        <div class="rounded-[24px] overflow-hidden bg-[#1A1A1A] p-2 border border-white/5">
+          <div class="rounded-[18px] overflow-hidden aspect-[4/3.6] relative">
+            <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=900&q=80" alt="Artist workspace" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+              <div class="inline-flex items-center gap-2 bg-[#C6A664] text-black text-[10px] tracking-[0.2em] font-bold px-3 py-1.5 rounded-full mb-3">
+                <span class="w-1.5 h-1.5 bg-black rounded-full"></span> EST. 2019 • MULTAN, PAKISTAN
+              </div>
+              <h3 class="font-serif text-2xl text-white leading-none">Hamid Iqbal</h3>
+              <p class="text-xs tracking-[0.18em] text-white/60 mt-1">TRADITIONAL & CONTEMPORARY ARTIST</p>
+            </div>
+          </div>
+        </div>
+        <!-- floating stats -->
+        <div class="absolute -bottom-4 -right-2 md:right-4 bg-[#141414] border border-white/10 rounded-2xl p-4 flex items-center gap-6 shadow-2xl">
+          <div class="text-center">
+            <div class="font-serif text-xl text-white">6+</div>
+            <div class="text-[9px] tracking-[0.2em] text-white/40">YEARS</div>
+          </div>
+          <div class="w-px h-8 bg-white/10"></div>
+          <div class="text-center">
+            <div class="font-serif text-xl text-white">500+</div>
+            <div class="text-[9px] tracking-[0.2em] text-white/40">COLLECTORS</div>
+          </div>
+          <div class="w-px h-8 bg-white/10"></div>
+          <div class="flex -space-x-2">
+            <img src="https://i.pravatar.cc/100?img=32" class="w-7 h-7 rounded-full border-2 border-[#141414]">
+            <img src="https://i.pravatar.cc/100?img=12" class="w-7 h-7 rounded-full border-2 border-[#141414]">
+            <img src="https://i.pravatar.cc/100?img=45" class="w-7 h-7 rounded-full border-2 border-[#141414]">
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-[11px] tracking-[0.3em] text-[#C6A664]">ABOUT THE ARTIST</div>
+        <h2 class="font-serif text-[30px] md:text-[40px] leading-[1.05] font-light mt-3 text-white">
+          Obsessed with <span class="italic text-[#E8D5B5]">detail,</span><br>
+          devoted to <span class="text-[#C6A664]">texture.</span>
+        </h2>
+        <div class="mt-5 space-y-4 text-sm leading-relaxed text-white/55 font-light">
+          <p>
+            I'm <span class="text-white font-medium">Hamid</span> — a traditional and contemporary artist based in Pakistan, specializing in detailed botanical sketches, Arabic calligraphy with gold accents, and 3D textured wall art. My work lives at the intersection of <span class="text-white/80">old-world craftsmanship</span> and modern minimalism.
+          </p>
+          <p>
+            Each piece begins with graphite — often <span class="text-white/80">8B on textured canvas paper</span> — slowly building layers until the leaf breathes, the script glows, or the texture catches light like plaster at golden hour. I don't chase trends; I create heirlooms for quiet, light-filled spaces.
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <div class="bg-[#141414] border border-white/5 rounded-xl p-4 flex gap-3">
+              <div class="w-9 h-9 rounded-lg bg-[#C6A664]/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-leaf text-[#C6A664] text-sm"></i></div>
+              <div><div class="text-xs font-semibold tracking-widest text-white">BOTANICAL REALISM</div><div class="text-xs text-white/45 mt-1">Dark graphite & charcoal — hyper-detailed florals</div></div>
+            </div>
+            <div class="bg-[#141414] border border-white/5 rounded-xl p-4 flex gap-3">
+              <div class="w-9 h-9 rounded-lg bg-[#C6A664]/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-pen-nib text-[#C6A664] text-sm"></i></div>
+              <div><div class="text-xs font-semibold tracking-widest text-white">GOLD CALLIGRAPHY</div><div class="text-xs text-white/45 mt-1">Arabic script with warm gold leaf accents</div></div>
+            </div>
+            <div class="bg-[#141414] border border-white/5 rounded-xl p-4 flex gap-3 sm:col-span-2">
+              <div class="w-9 h-9 rounded-lg bg-[#C6A664]/10 flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-layer-group text-[#C6A664] text-sm"></i></div>
+              <div><div class="text-xs font-semibold tracking-widest text-white">3D TEXTURED CANVAS</div><div class="text-xs text-white/45 mt-1">Sculptural plaster & acrylic — gallery-grade depth for interior designers</div></div>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3 pt-4">
+            <a href="https://www.instagram.com/itxhamid_gallery?igsh=MXNmZ211OGppc2hvNQ==" target="_blank" class="inline-flex items-center gap-2 bg-white text-black px-6 py-3 rounded-full text-xs font-bold tracking-widest hover:bg-zinc-100 transition">
+              <i class="fa-brands fa-instagram"></i> VIEW INSTAGRAM
+            </a>
+            <a href="#commission" class="inline-flex items-center gap-2 border border-white/15 text-white px-6 py-3 rounded-full text-xs font-semibold tracking-widest hover:bg-white hover:text-black transition">REQUEST CUSTOM PIECE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Commission Section -->
+<section id="commission" class="py-12 md:py-16 bg-[#0B0B0B]">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="grid lg:grid-cols-5 gap-8">
+      <!-- left info -->
+      <div class="lg:col-span-2">
+        <div class="text-[11px] tracking-[0.3em] text-[#C6A664]">CUSTOM COMMISSIONS</div>
+        <h2 class="font-serif text-[32px] md:text-[40px] leading-none font-light mt-3 text-white">Made for<br><span class="italic text-[#E8D5B5]">your</span> <span class="text-[#C6A664]">space.</span></h2>
+        <p class="text-sm text-white/50 mt-4 leading-relaxed max-w-[420px]">
+          Bespoke artwork tailored to your dimensions, palette and interior. Every commission is sketched, approved, and then hand-finished.
+        </p>
+
+        <div class="mt-6 bg-[#FFF7E6] text-zinc-900 rounded-2xl p-5 border border-[#C6A664]/20">
+          <div class="flex items-start gap-3">
+            <div class="w-8 h-8 rounded-full bg-[#C6A664] flex items-center justify-center flex-shrink-0 mt-0.5"><i class="fa-solid fa-circle-info text-white text-xs"></i></div>
+            <div>
+              <div class="text-xs font-bold tracking-widest">A NOTE ON SPECIALIZATION</div>
+              <p class="text-xs leading-relaxed mt-1.5 text-zinc-600">
+                Hamid specializes in <span class="font-semibold text-zinc-900">floral, botanical, texture and abstract/calligraphy</span> aesthetic decor. We kindly do not undertake portrait commissions — our focus is on creating timeless, interior-led pieces that elevate your space.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 space-y-3">
+          <div class="flex items-center gap-3 text-sm text-white/70"><span class="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><i class="fa-regular fa-clock text-[11px]"></i></span> 2–3 weeks turnaround • Worldwide shipping</div>
+          <div class="flex items-center gap-3 text-sm text-white/70"><span class="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><i class="fa-solid fa-shield-halved text-[11px]"></i></span> Secure advance • Progress updates via WhatsApp</div>
+          <div class="flex items-center gap-3 text-sm text-white/70"><span class="w-7 h-7 rounded-full bg-white/5 border border-white/10 flex items-center justify-center"><i class="fa-regular fa-envelope text-[11px]"></i></span> khizariqbalkhizar081@gmail.com</div>
+        </div>
+      </div>
+
+      <!-- form -->
+      <div class="lg:col-span-3">
+        <form id="commissionForm" class="bg-[#141414] border border-white/5 rounded-[24px] p-5 md:p-7 space-y-5">
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-[10px] tracking-[0.2em] text-white/40 font-medium">FULL NAME *</label>
+              <input type="text" required placeholder="e.g. Sarah Ahmed" class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+            </div>
+            <div>
+              <label class="text-[10px] tracking-[0.2em] text-white/40 font-medium">EMAIL *</label>
+              <input type="email" required placeholder="sarah@email.com" class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+            </div>
+          </div>
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="text-[10px] tracking-[0.2em] text-white/40 font-medium">PHONE / WHATSAPP *</label>
+              <input type="tel" required placeholder="0307 7611467" class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+            </div>
+            <div>
+              <label class="text-[10px] tracking-[0.2em] text-white/40 font-medium">ART TYPE *</label>
+              <select required class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#C6A664]/50">
+                <option value="">Select art type</option>
+                <option>Botanical & Floral Sketch</option>
+                <option>Arabic Calligraphy & Gold Accent</option>
+                <option>3D Textured Art & Canvas</option>
+                <option>Mixed / Interior Set (2-3 pieces)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-[10px] tracking-[0.2em] text-white/40 font-medium">PREFERRED DIMENSIONS</label>
+            <div class="mt-2 grid grid-cols-3 gap-3">
+              <div class="relative">
+                <input type="text" placeholder="Width" class="w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/30">inch</span>
+              </div>
+              <div class="relative">
+                <input type="text" placeholder="Height" class="w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+                <span class="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] text-white/30">inch</span>
+              </div>
+              <select class="w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-3 py-3 text-sm text-white focus:outline-none focus:border-[#C6A664]/50">
+                <option>Canvas</option>
+                <option>Canvas Paper</option>
+                <option>Framed</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="text-[10px] tracking-[0.2em] text-white/40 font-medium">REFERENCE IMAGE (OPTIONAL)</label>
+            <label class="mt-2 flex flex-col items-center justify-center gap-2 border border-dashed border-white/15 rounded-xl py-6 cursor-pointer hover:border-[#C6A664]/40 hover:bg-[#C6A664]/5 transition group">
+              <input type="file" id="commissionFile" accept="image/*" class="hidden" onchange="handleCommissionFile(this)">
+              <div class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#C6A664]/20 transition"><i class="fa-solid fa-cloud-arrow-up text-white/60 group-hover:text-[#C6A664]"></i></div>
+              <span id="commissionFileName" class="text-xs text-white/50">Click to upload inspiration / room photo</span>
+              <span class="text-[10px] text-white/30">JPG, PNG up to 8MB</span>
+            </label>
+          </div>
+
+          <div>
+            <label class="text-[10px] tracking-[0.2em] text-white/40 font-medium">PROJECT DETAILS *</label>
+            <textarea required rows="4" placeholder="Tell us about your space, color palette, placement (living room, bedroom, office), and any specific ideas..." class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50 resize-none"></textarea>
+          </div>
+
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" required class="mt-1 accent-[#C6A664]">
+            <span class="text-xs leading-relaxed text-white/50">I understand Hamid specializes in floral, texture & calligraphy decor (non-portrait) and agree to be contacted via email/WhatsApp regarding my commission.</span>
+          </label>
+
+          <button type="submit" class="w-full bg-[#C6A664] text-black py-4 rounded-full font-bold tracking-[0.18em] text-xs hover:bg-[#D4B87A] transition flex items-center justify-center gap-2">
+            SEND COMMISSION INQUIRY <i class="fa-solid fa-paper-plane text-[11px]"></i>
+          </button>
+          <p class="text-center text-[11px] text-white/30">Average response time: within 6 hours • 03077611467 on WhatsApp</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer id="footer" class="bg-[#080808] border-t border-white/5 pt-10 pb-6">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8">
+    <div class="grid md:grid-cols-4 gap-8 pb-8 border-b border-white/5">
+      <div class="md:col-span-2">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full border border-[#C6A664]/30 flex items-center justify-center"><span class="font-serif text-[#C6A664]">H</span></div>
+          <div><div class="font-serif tracking-[0.2em] text-white text-sm">HAMID'S GALLERY</div><div class="text-[10px] tracking-[0.3em] text-[#C6A664]">TIMELESS AESTHETIC</div></div>
+        </div>
+        <p class="text-sm text-white/40 leading-relaxed mt-4 max-w-[420px] font-light">
+          Traditional & contemporary art for modern interiors. Botanical realism, gold-leaf calligraphy and sculptural textured canvases — made to live with you.
+        </p>
+        <div class="flex items-center gap-3 mt-5">
+          <a href="https://www.instagram.com/itxhamid_gallery?igsh=MXNmZ211OGppc2hvNQ==" target="_blank" class="w-9 h-9 rounded-full bg-[#C6A664] flex items-center justify-center text-black hover:bg-white transition"><i class="fa-brands fa-instagram"></i></a>
+          <a href="mailto:khizariqbalkhizar081@gmail.com" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition"><i class="fa-regular fa-envelope text-sm"></i></a>
+          <a href="https://wa.me/923077611467" target="_blank" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white hover:text-black transition"><i class="fa-brands fa-whatsapp text-sm"></i></a>
+        </div>
+      </div>
+      <div>
+        <div class="text-xs tracking-[0.2em] text-white font-semibold">NAVIGATION</div>
+        <div class="mt-4 space-y-2.5 text-sm text-white/45">
+          <a href="#gallery" class="block hover:text-[#C6A664] transition">Gallery & Collection</a>
+          <a href="#about" class="block hover:text-[#C6A664] transition">About the Artist</a>
+          <a href="#commission" class="block hover:text-[#C6A664] transition">Custom Commission</a>
+          <a href="mailto:khizariqbalkhizar081@gmail.com" class="block hover:text-[#C6A664] transition">Contact & Inquiries</a>
+        </div>
+      </div>
+      <div>
+        <div class="text-xs tracking-[0.2em] text-white font-semibold">CONTACT</div>
+        <div class="mt-4 space-y-2.5 text-sm text-white/45">
+          <a href="mailto:khizariqbalkhizar081@gmail.com" class="flex items-center gap-2 hover:text-white transition"><i class="fa-regular fa-envelope text-xs text-[#C6A664]"></i> khizariqbalkhizar081@gmail.com</a>
+          <a href="https://wa.me/923077611467" target="_blank" class="flex items-center gap-2 hover:text-white transition"><i class="fa-solid fa-phone text-xs text-[#C6A664]"></i> 03077611467</a>
+          <a href="https://www.instagram.com/itxhamid_gallery?igsh=MXNmZ211OGppc2hvNQ==" target="_blank" class="flex items-center gap-2 hover:text-white transition"><i class="fa-brands fa-instagram text-xs text-[#C6A664]"></i> @itxhamid_gallery</a>
+          <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-xs text-[#C6A664]"></i> Multan, Pakistan • Worldwide Shipping</div>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row items-center justify-between gap-3 pt-6 text-xs text-white/30">
+      <div>© 2026 Hamid's Gallery. All artworks are original and protected. Crafted with detail.</div>
+      <div class="flex items-center gap-4">
+        <span class="hidden md:inline">Admin access is private</span>
+        <button onclick="openAdminLogin()" class="inline-flex items-center gap-1.5 border border-white/10 px-3 py-1.5 rounded-full hover:bg-white hover:text-black transition text-[11px] tracking-widest"><i class="fa-solid fa-lock text-[10px]"></i> ADMIN LOGIN</button>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="fixed inset-0 z-[70] hidden">
+  <div class="absolute inset-0 bg-black/90 backdrop-blur-sm" onclick="closeLightbox()"></div>
+  <div class="relative max-w-[1100px] mx-auto h-full flex flex-col md:flex-row p-4 md:p-8 gap-6 items-center">
+    <button onclick="closeLightbox()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white hover:text-black transition z-10"><i class="fa-solid fa-xmark"></i></button>
+    <div class="flex-1 w-full bg-[#0F0F0F] rounded-[20px] overflow-hidden border border-white/10 max-h-[70vh] md:max-h-[80vh] flex items-center justify-center p-2">
+      <img id="lightboxImg" src="" alt="" class="max-w-full max-h-[68vh] md:max-h-[78vh] object-contain rounded-xl">
+    </div>
+    <div class="w-full md:w-[360px] bg-[#141414] border border-white/5 rounded-[20px] p-6 flex-shrink-0">
+      <div id="lightboxCategory" class="text-[10px] tracking-[0.25em] text-[#C6A664] font-semibold"></div>
+      <h3 id="lightboxTitle" class="font-serif text-2xl text-white mt-2 leading-none"></h3>
+      <div id="lightboxMedium" class="text-sm text-white/60 mt-2"></div>
+      <div class="flex items-center gap-2 mt-3 text-xs text-white/40">
+        <span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10" id="lightboxSize"></span>
+        <span class="px-2.5 py-1 rounded-full bg-[#C6A664]/15 text-[#C6A664] border border-[#C6A664]/20">Original • Handmade</span>
+      </div>
+      <p id="lightboxDesc" class="text-sm leading-relaxed text-white/55 mt-5"></p>
+      <div class="grid grid-cols-2 gap-3 mt-6">
+        <a id="lightboxWhatsapp" href="#" target="_blank" class="bg-[#25D366] text-white py-3 rounded-full text-xs font-bold tracking-widest text-center flex items-center justify-center gap-2"><i class="fa-brands fa-whatsapp"></i> WHATSAPP</a>
+        <a id="lightboxEmail" href="#" class="bg-white text-black py-3 rounded-full text-xs font-bold tracking-widest text-center">INQUIRE</a>
+      </div>
+      <div class="mt-4 flex items-center gap-2 text-[11px] text-white/30 justify-center"><i class="fa-solid fa-shield-halved text-[#C6A664]"></i> Secure inquiry • Worldwide shipping available</div>
+      <div class="mt-6 flex justify-between">
+        <button onclick="lightboxPrev()" class="w-9 h-9 rounded-full border border-white/10 text-white flex items-center justify-center hover:bg-white hover:text-black transition"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+        <button onclick="lightboxNext()" class="w-9 h-9 rounded-full border border-white/10 text-white flex items-center justify-center hover:bg-white hover:text-black transition"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin Login Modal -->
+<div id="adminLoginModal" class="fixed inset-0 z-[80] hidden">
+  <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="closeAdminLogin()"></div>
+  <div class="relative max-w-[420px] mx-auto mt-[12vh] bg-[#141414] border border-white/10 rounded-[24px] p-7 md:p-8 m-4">
+    <button onclick="closeAdminLogin()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/5 text-white/60 flex items-center justify-center hover:bg-white hover:text-black transition"><i class="fa-solid fa-xmark text-sm"></i></button>
+    <div class="w-11 h-11 rounded-full bg-[#C6A664]/15 border border-[#C6A664]/20 flex items-center justify-center mb-4"><i class="fa-solid fa-lock text-[#C6A664]"></i></div>
+    <h3 class="font-serif text-2xl text-white">Admin Access</h3>
+    <p class="text-xs text-white/45 mt-1">Restricted to Hamid only. Visitors cannot add or delete artworks.</p>
+    <div class="mt-4 bg-[#C6A664]/10 border border-[#C6A664]/20 rounded-xl px-3 py-2.5 text-xs text-[#E8D5B5] leading-relaxed">
+      <span class="font-bold text-[#C6A664]">Demo credentials:</span> Username <span class="text-white font-mono">hamid</span> &nbsp;•&nbsp; Password <span class="text-white font-mono">hamid123</span>
+    </div>
+    <form onsubmit="handleAdminLogin(event)" class="mt-5 space-y-4">
+      <div>
+        <label class="text-[10px] tracking-[0.2em] text-white/40">USERNAME</label>
+        <input id="adminUser" type="text" placeholder="hamid" class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+      </div>
+      <div>
+        <label class="text-[10px] tracking-[0.2em] text-white/40">PASSWORD</label>
+        <input id="adminPass" type="password" placeholder="••••••••" class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+      </div>
+      <p id="loginError" class="hidden text-xs text-red-400 bg-red-500/10 border border-red-500/20 rounded-lg px-3 py-2"></p>
+      <button type="submit" class="w-full bg-[#C6A664] text-black py-3.5 rounded-full font-bold tracking-[0.18em] text-xs hover:bg-[#D4B87A] transition">LOGIN TO DASHBOARD</button>
+    </form>
+  </div>
+</div>
+
+<!-- Admin Dashboard Panel -->
+<div id="adminPanel" class="fixed inset-0 z-[75] hidden overflow-y-auto bg-[#0B0B0B]">
+  <div class="sticky top-0 z-10 bg-[#0B0B0B]/90 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-8 h-[64px] flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-[#C6A664] flex items-center justify-center text-black font-serif font-bold">H</div>
+        <div><div class="text-sm font-semibold tracking-widest text-white">ADMIN DASHBOARD</div><div class="text-[11px] text-[#C6A664] tracking-widest">HAMID'S GALLERY CMS</div></div>
+        <span class="hidden md:inline-flex ml-3 px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/20 text-[11px] tracking-widest"><span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse mr-1.5 inline-block"></span> LOGGED IN</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="closeAdminPanel()" class="hidden md:inline-flex border border-white/10 text-white px-4 py-2 rounded-full text-xs tracking-widest hover:bg-white hover:text-black transition">VIEW GALLERY</button>
+        <button onclick="handleLogout()" class="bg-white text-black px-4 py-2 rounded-full text-xs font-bold tracking-widest hover:bg-zinc-100 transition">LOGOUT</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-[1400px] mx-auto px-4 md:px-8 py-6 md:py-8">
+    <div class="grid lg:grid-cols-5 gap-6">
+      <!-- Add form -->
+      <div class="lg:col-span-2">
+        <div class="bg-[#141414] border border-white/5 rounded-[20px] p-5 md:p-6">
+          <h3 class="font-serif text-xl text-white">Add New Painting</h3>
+          <p class="text-xs text-white/40 mt-1">Upload image, add details — appears instantly in the live gallery.</p>
+          <form id="addArtworkForm" onsubmit="handleAddArtwork(event)" class="mt-5 space-y-4">
+            <div>
+              <label class="text-[10px] tracking-[0.2em] text-white/40">ARTWORK IMAGE *</label>
+              <label class="mt-2 flex flex-col items-center justify-center gap-2 border border-dashed border-white/15 rounded-xl py-6 cursor-pointer hover:border-[#C6A664]/40 hover:bg-[#C6A664]/5 transition group">
+                <input type="file" id="artworkImageFile" accept="image/*" class="hidden" onchange="handleArtworkImage(this)">
+                <div class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#C6A664]/20 transition"><i class="fa-solid fa-image text-white/60 group-hover:text-[#C6A664]"></i></div>
+                <span id="artworkImageName" class="text-xs text-white/50 text-center px-2">Click to upload (or paste image URL below)</span>
+                <img id="artworkPreview" src="" alt="" class="hidden w-full max-h-40 object-cover rounded-xl mt-2 border border-white/10">
+              </label>
+              <input type="url" id="artworkImageUrl" placeholder="Or paste image URL: https://..." class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-2.5 text-xs text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+            </div>
+            <div>
+              <label class="text-[10px] tracking-[0.2em] text-white/40">TITLE *</label>
+              <input id="artworkTitle" required type="text" placeholder="e.g. Whispering Fern – No. 07" class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="text-[10px] tracking-[0.2em] text-white/40">CATEGORY *</label>
+                <select id="artworkCategory" required class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-3 py-3 text-sm text-white focus:outline-none focus:border-[#C6A664]/50">
+                  <option value="botanical">Botanical & Floral</option>
+                  <option value="calligraphy">Arabic Calligraphy</option>
+                  <option value="textured">3D Textured Art</option>
+                </select>
+              </div>
+              <div>
+                <label class="text-[10px] tracking-[0.2em] text-white/40">SIZE *</label>
+                <input id="artworkSize" required type="text" placeholder='24" × 18"' class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+              </div>
+            </div>
+            <div>
+              <label class="text-[10px] tracking-[0.2em] text-white/40">MEDIUM *</label>
+              <input id="artworkMedium" required type="text" placeholder="8B Graphite on Canvas Paper" class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50">
+            </div>
+            <div>
+              <label class="text-[10px] tracking-[0.2em] text-white/40">DESCRIPTION</label>
+              <textarea id="artworkDesc" rows="3" placeholder="Short description for collectors..." class="mt-2 w-full bg-[#1A1A1A] border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-[#C6A664]/50 resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-[#C6A664] text-black py-3.5 rounded-full font-bold tracking-[0.18em] text-xs hover:bg-[#D4B87A] transition flex items-center justify-center gap-2">
+              <i class="fa-solid fa-plus"></i> ADD TO GALLERY
+            </button>
+          </form>
+        </div>
+        <div class="mt-4 bg-[#1A1A1A] border border-white/5 rounded-2xl p-4 flex items-center justify-between">
+          <div>
+            <div class="text-sm font-semibold text-white">Live Gallery Status</div>
+            <div class="text-xs text-white/40"><span id="adminCount">0</span> artworks • Visible to all visitors</div>
+          </div>
+          <div class="w-10 h-10 rounded-full bg-emerald-500/15 flex items-center justify-center"><i class="fa-solid fa-eye text-emerald-400 text-sm"></i></div>
+        </div>
+      </div>
+
+      <!-- Manage list -->
+      <div class="lg:col-span-3">
+        <div class="bg-[#141414] border border-white/5 rounded-[20px] p-5 md:p-6">
+          <div class="flex items-center justify-between">
+            <h3 class="font-serif text-xl text-white">Manage Paintings</h3>
+            <span class="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/50">Click delete to remove instantly</span>
+          </div>
+          <div id="adminList" class="mt-5 space-y-3 max-h-[70vh] overflow-y-auto pr-1">
+            <!-- injected -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div id="toast" class="fixed bottom-4 left-1/2 -translate-x-1/2 z-[90] hidden">
+  <div class="bg-[#1A1A1A] border border-[#C6A664]/20 text-white px-5 py-3 rounded-full shadow-2xl flex items-center gap-3 text-sm">
+    <span class="w-7 h-7 rounded-full bg-[#C6A664] flex items-center justify-center text-black flex-shrink-0"><i class="fa-solid fa-check text-xs"></i></span>
+    <span id="toastMsg">Success</span>
+  </div>
+</div>
+
+<script>
+const defaultArtworks = [
+  {id:1, title:"Monstera Nocturne", category:"botanical", medium:"8B Graphite on Canvas Paper", size:'24" × 18"', image:"https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&q=80", desc:"Deep charcoal realism — layered graphite building velvety darks and luminous veins. A statement for minimalist interiors."},
+  {id:2, title:"Golden Ayah — Al Noor", category:"calligraphy", medium:"Ink & 24k Gold Leaf on Textured Paper", size:'20" × 28"', image:"https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=800&q=80", desc:"Arabic calligraphy with warm gold accents, floating on a soft plaster texture. Light catches the leaf at every angle."},
+  {id:3, title:"Ivory Dunes", category:"textured", medium:"Plaster & Acrylic on Canvas", size:'30" × 30"', image:"https://images.unsplash.com/photo-1549490349-8643362247b5?w=800&q=80", desc:"Sculptural 3D waves — hand-troweled plaster creating shadows that shift through the day. Gallery-grade depth."},
+  {id:4, title:"Fern Study — Shade IV", category:"botanical", medium:"Charcoal & Graphite on Toned Paper", size:'16" × 20"', image:"https://images.unsplash.com/photo-1501003878151-d84cbaf785c0?w=800&q=80", desc:"Delicate fern fronds rendered with ultra-fine graphite. Botanical precision meets soft, airy negative space."},
+  {id:5, title:"Bismillah — Gold Horizon", category:"calligraphy", medium:"Gold Ink & Acrylic on Black Canvas", size:'36" × 24"', image:"https://images.unsplash.com/photo-1590732596287-4f1a5a3b5b2b?w=800&q=80", desc:"Contemporary Arabic script in warm gold over deep charcoal — luxurious yet serene for modern homes."},
+  {id:6, title:"Plaster Bloom", category:"textured", medium:"Mixed Media — Plaster, Linen & Acrylic", size:'24" × 24"', image:"https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=800&q=80", desc:"Textured floral relief — tactile petals built up in plaster, finished in soft mineral tones."},
+  {id:7, title:"Eucalyptus Whisper", category:"botanical", medium:"8B Graphite on Cold-Pressed Paper", size:'18" × 24"', image:"https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80", desc:"Minimal eucalyptus sprigs — quiet, elegant graphite work perfect for Scandinavian interiors."},
+  {id:8, title:"Alhamdulillah — Light", category:"calligraphy", medium:"Gold Leaf & Ink on Ivory Canvas", size:'28" × 20"', image:"https://images.unsplash.com/photo-1536924430911-9384f9be46d3?w=800&q=80", desc:"Graceful calligraphy with floating gold leaf — a timeless accent for entryways and prayer spaces."},
+  {id:9, title:"Stone & Silk", category:"textured", medium:"Textured Acrylic & Sand on Canvas", size:'32" × 24"', image:"https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&q=80", desc:"Earthy, tactile abstraction — layers of sand-textured acrylic creating a calm, wabi-sabi surface."},
+];
+
+let artworks = [];
+let currentFilter = 'all';
+let currentLightboxIndex = 0;
+let filteredForLightbox = [];
+let isAdmin = sessionStorage.getItem('hamid_admin') === 'true';
+let pendingImageData = '';
+
+function loadArtworks(){
+  const stored = localStorage.getItem('hamid_gallery_artworks');
+  if(stored){
+    try{ artworks = JSON.parse(stored); } catch(e){ artworks = [...defaultArtworks]; }
+  } else {
+    artworks = [...defaultArtworks];
+  }
+}
+function saveArtworks(){
+  localStorage.setItem('hamid_gallery_artworks', JSON.stringify(artworks));
+}
+
+function renderGallery(){
+  const grid = document.getElementById('galleryGrid');
+  const empty = document.getElementById('emptyState');
+  const count = document.getElementById('galleryCount');
+  const adminCount = document.getElementById('adminCount');
+  const filtered = currentFilter === 'all' ? artworks : artworks.filter(a=>a.category===currentFilter);
+  filteredForLightbox = filtered;
+  count.textContent = filtered.length;
+  if(adminCount) adminCount.textContent = artworks.length;
+  grid.innerHTML = '';
+  if(filtered.length===0){
+    empty.classList.remove('hidden');
+    document.getElementById('emptyAdminHint').classList.toggle('hidden', isAdmin);
+    return;
+  }
+  empty.classList.add('hidden');
+  filtered.forEach((art, idx)=>{
+    const catLabel = art.category==='botanical'?'BOTANICAL':art.category==='calligraphy'?'CALLIGRAPHY':'TEXTURED';
+    const card = document.createElement('div');
+    card.className = 'group relative bg-[#141414] border border-white/5 rounded-[20px] overflow-hidden hover:border-[#C6A664]/20 transition flex flex-col';
+    card.innerHTML = `
+      <div class="relative aspect-[4/3.2] overflow-hidden bg-[#0F0F0F] cursor-pointer" onclick="openLightbox(${art.id})">
+        <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-[1.04] transition duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-60 group-hover:opacity-80 transition"></div>
+        <div class="absolute top-3 left-3 flex items-center gap-2">
+          <span class="text-[10px] tracking-[0.18em] bg-black/60 backdrop-blur text-white/90 px-2.5 py-1 rounded-full border border-white/10">${catLabel}</span>
+          ${isAdmin ? `<span class="text-[10px] bg-[#C6A664] text-black px-2 py-1 rounded-full font-bold">ADMIN</span>` : ``}
+        </div>
+        <div class="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/10 backdrop-blur border border-white/15 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition">
+          <i class="fa-solid fa-expand text-xs"></i>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4">
+          <h3 class="font-serif text-[17px] text-white leading-none">${art.title}</h3>
+          <p class="text-xs text-white/60 mt-1 line-clamp-1">${art.medium}</p>
+        </div>
+      </div>
+      <div class="p-4 flex items-center justify-between gap-3">
+        <div class="text-xs text-white/40"><i class="fa-regular fa-ruler-combined mr-1 text-[#C6A664]"></i> ${art.size}</div>
+        <div class="flex items-center gap-2">
+          <button onclick="openLightbox(${art.id})" class="text-[11px] tracking-widest font-semibold text-white border border-white/10 px-3 py-1.5 rounded-full hover:bg-white hover:text-black transition">VIEW</button>
+          ${isAdmin ? `<button onclick="deleteArtwork(${art.id})" class="w-7 h-7 rounded-full bg-red-500/15 border border-red-500/20 text-red-400 flex items-center justify-center hover:bg-red-500 hover:text-white transition" title="Delete"><i class="fa-solid fa-trash text-[11px]"></i></button>` : ``}
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderAdminList(){
+  const list = document.getElementById('adminList');
+  if(!list) return;
+  list.innerHTML = '';
+  if(artworks.length===0){
+    list.innerHTML = `<div class="text-center py-10 text-white/30 text-sm">No artworks yet. Add your first piece.</div>`;
+    return;
+  }
+  artworks.slice().reverse().forEach(art=>{
+    const cat = art.category==='botanical'?'Botanical':art.category==='calligraphy'?'Calligraphy':'Textured';
+    const row = document.createElement('div');
+    row.className = 'flex gap-3 p-3 rounded-2xl bg-[#1A1A1A] border border-white/5 hover:border-white/10 transition';
+    row.innerHTML = `
+      <img src="${art.image}" class="w-16 h-16 rounded-xl object-cover flex-shrink-0 border border-white/5">
+      <div class="flex-1 min-w-0">
+        <div class="text-sm font-medium text-white truncate">${art.title}</div>
+        <div class="text-xs text-white/40 truncate">${cat} • ${art.medium} • ${art.size}</div>
+        <div class="text-[11px] text-white/30 truncate mt-0.5">${art.desc || ''}</div>
+      </div>
+      <button onclick="deleteArtwork(${art.id})" class="self-center w-8 h-8 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 flex items-center justify-center hover:bg-red-500 hover:text-white transition flex-shrink-0"><i class="fa-solid fa-trash text-xs"></i></button>
+    `;
+    list.appendChild(row);
+  });
+}
+
+// Filter
+document.addEventListener('DOMContentLoaded', ()=>{
+  loadArtworks();
+  renderGallery();
+  renderAdminList();
+  updateAdminUI();
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>{
+        b.classList.remove('active','bg-[#C6A664]','text-black');
+        b.classList.add('text-white/60');
+      });
+      btn.classList.add('active','bg-[#C6A664]','text-black');
+      btn.classList.remove('text-white/60');
+      currentFilter = btn.dataset.filter;
+      renderGallery();
+    });
+  });
+});
+
+function openLightbox(id){
+  const art = artworks.find(a=>a.id===id);
+  if(!art) return;
+  currentLightboxIndex = filteredForLightbox.findIndex(a=>a.id===id);
+  if(currentLightboxIndex<0) currentLightboxIndex=0;
+  showLightboxArt(art);
+  document.getElementById('lightbox').classList.remove('hidden');
+  document.body.style.overflow='hidden';
+}
+function showLightboxArt(art){
+  document.getElementById('lightboxImg').src = art.image;
+  document.getElementById('lightboxTitle').textContent = art.title;
+  document.getElementById('lightboxCategory').textContent = art.category==='botanical'?'BOTANICAL & FLORAL':art.category==='calligraphy'?'ARABIC CALLIGRAPHY':'3D TEXTURED ART';
+  document.getElementById('lightboxMedium').textContent = art.medium;
+  document.getElementById('lightboxSize').textContent = art.size;
+  document.getElementById('lightboxDesc').textContent = art.desc || 'Original handmade artwork by Hamid — crafted with graphite, gold accents and textured layers for timeless interiors.';
+  document.getElementById('lightboxWhatsapp').href = `https://wa.me/923077611467?text=${encodeURIComponent(`Hello Hamid, I'm interested in "${art.title}" (${art.medium}, ${art.size}). Please share details.`)}`;
+  document.getElementById('lightboxEmail').href = `mailto:khizariqbalkhizar081@gmail.com?subject=${encodeURIComponent(`Inquiry: ${art.title}`)}&body=${encodeURIComponent(`Hello Hamid,\n\nI'm interested in "${art.title}"\nMedium: ${art.medium}\nSize: ${art.size}\n\nPlease share price and availability.\n\nThank you!`)}`;
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.add('hidden');
+  document.body.style.overflow='';
+}
+function lightboxNext(){
+  if(filteredForLightbox.length===0) return;
+  currentLightboxIndex = (currentLightboxIndex+1)%filteredForLightbox.length;
+  showLightboxArt(filteredForLightbox[currentLightboxIndex]);
+}
+function lightboxPrev(){
+  if(filteredForLightbox.length===0) return;
+  currentLightboxIndex = (currentLightboxIndex-1+filteredForLightbox.length)%filteredForLightbox.length;
+  showLightboxArt(filteredForLightbox[currentLightboxIndex]);
+}
+document.addEventListener('keydown', e=>{
+  if(!document.getElementById('lightbox').classList.contains('hidden')){
+    if(e.key==='Escape') closeLightbox();
+    if(e.key==='ArrowRight') lightboxNext();
+    if(e.key==='ArrowLeft') lightboxPrev();
+  }
+  if(e.key==='Escape'){
+    closeAdminLogin();
+  }
+});
+
+// Admin
+function openAdminLogin(){
+  if(isAdmin){
+    document.getElementById('adminPanel').classList.remove('hidden');
+    document.body.style.overflow='hidden';
+    return;
+  }
+  document.getElementById('adminLoginModal').classList.remove('hidden');
+}
+function closeAdminLogin(){
+  document.getElementById('adminLoginModal').classList.add('hidden');
+  document.getElementById('loginError').classList.add('hidden');
+}
+function handleAdminLogin(e){
+  e.preventDefault();
+  const u = document.getElementById('adminUser').value.trim();
+  const p = document.getElementById('adminPass').value.trim();
+  if(u==='hamid' && p==='hamid123'){
+    isAdmin = true;
+    sessionStorage.setItem('hamid_admin','true');
+    closeAdminLogin();
+    document.getElementById('adminPanel').classList.remove('hidden');
+    document.body.style.overflow='hidden';
+    updateAdminUI();
+    renderGallery();
+    renderAdminList();
+    showToast('Welcome Hamid — admin dashboard unlocked');
+    document.getElementById('adminUser').value='';
+    document.getElementById('adminPass').value='';
+  } else {
+    const err = document.getElementById('loginError');
+    err.textContent = 'Invalid credentials. Hint: hamid / hamid123';
+    err.classList.remove('hidden');
+  }
+}
+function closeAdminPanel(){
+  document.getElementById('adminPanel').classList.add('hidden');
+  document.body.style.overflow='';
+}
+function handleLogout(){
+  isAdmin=false;
+  sessionStorage.removeItem('hamid_admin');
+  closeAdminPanel();
+  updateAdminUI();
+  renderGallery();
+  showToast('Logged out — gallery is now in visitor mode');
+}
+function updateAdminUI(){
+  const badge = document.getElementById('adminTrigger');
+  if(badge){
+    if(isAdmin){
+      badge.innerHTML = '<i class="fa-solid fa-unlock text-[10px]"></i> DASHBOARD';
+      badge.classList.add('bg-[#C6A664]','text-black','border-[#C6A664]');
+      badge.classList.remove('text-white/60','border-white/10');
+    } else {
+      badge.innerHTML = '<i class="fa-solid fa-lock text-[10px]"></i> ADMIN';
+      badge.classList.remove('bg-[#C6A664]','text-black','border-[#C6A664]');
+      badge.classList.add('text-white/60','border-white/10');
+    }
+  }
+}
+
+function handleArtworkImage(input){
+  const file = input.files[0];
+  if(!file) return;
+  if(file.size > 8*1024*1024){
+    showToast('Image too large — max 8MB');
+    return;
+  }
+  document.getElementById('artworkImageName').textContent = file.name;
+  const reader = new FileReader();
+  reader.onload = e=>{
+    pendingImageData = e.target.result;
+    const prev = document.getElementById('artworkPreview');
+    prev.src = pendingImageData;
+    prev.classList.remove('hidden');
+  };
+  reader.readAsDataURL(file);
+}
+function handleAddArtwork(e){
+  e.preventDefault();
+  const title = document.getElementById('artworkTitle').value.trim();
+  const category = document.getElementById('artworkCategory').value;
+  const size = document.getElementById('artworkSize').value.trim();
+  const medium = document.getElementById('artworkMedium').value.trim();
+  const desc = document.getElementById('artworkDesc').value.trim();
+  const url = document.getElementById('artworkImageUrl').value.trim();
+  let image = pendingImageData || url;
+  if(!image){
+    showToast('Please upload an image or paste an image URL');
+    return;
+  }
+  const newArt = {
+    id: Date.now(),
+    title: title || 'Untitled',
+    category, size, medium,
+    image, desc: desc || 'Original handmade artwork by Hamid.'
+  };
+  artworks.push(newArt);
+  saveArtworks();
+  renderGallery();
+  renderAdminList();
+  document.getElementById('addArtworkForm').reset();
+  document.getElementById('artworkPreview').classList.add('hidden');
+  document.getElementById('artworkImageName').textContent = 'Click to upload (or paste image URL below)';
+  pendingImageData='';
+  showToast('Artwork added to live gallery ✓');
+}
+function deleteArtwork(id){
+  if(!isAdmin){
+    showToast('Admin login required to delete');
+    return;
+  }
+  if(!confirm('Remove this artwork from the live gallery?')) return;
+  artworks = artworks.filter(a=>a.id!==id);
+  saveArtworks();
+  renderGallery();
+  renderAdminList();
+  showToast('Artwork removed');
+}
+
+// Commission
+function handleCommissionFile(input){
+  const file = input.files[0];
+  if(file) document.getElementById('commissionFileName').textContent = file.name + ' ✓';
+}
+document.getElementById('commissionForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  showToast('Commission inquiry sent — Hamid will reply via WhatsApp/Email within 6 hours');
+  e.target.reset();
+  document.getElementById('commissionFileName').textContent = 'Click to upload inspiration / room photo';
+});
+
+// Mobile menu
+function toggleMobileMenu(){
+  const m = document.getElementById('mobileMenu');
+  const icon = document.getElementById('menuIcon');
+  m.classList.toggle('hidden');
+  if(m.classList.contains('hidden')){
+    icon.className='fa-solid fa-bars text-sm';
+  } else {
+    icon.className='fa-solid fa-xmark text-sm';
+  }
+}
+
+// Toast
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.remove('hidden');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.add('hidden'), 3200);
+}
+
+// Navbar shrink on scroll
+window.addEventListener('scroll', ()=>{
+  const nav = document.getElementById('navbar');
+  if(window.scrollY>20){
+    nav.classList.add('shadow-lg','bg-[#0B0B0B]/95');
+  } else {
+    nav.classList.remove('shadow-lg','bg-[#0B0B0B]/95');
+    nav.classList.add('bg-[#0B0B0B]/80');
+  }
+});
+</script>
+</body>
+</html>
